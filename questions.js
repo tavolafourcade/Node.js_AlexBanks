@@ -21,3 +21,11 @@ const ask = (i=0) => {
 };
 
 ask();
+
+
+/* Using process.stdin to listen for answers */
+// The on function is used for listen to events.
+process.stdin.on('data', data =>{
+  process.stdout.write(`\n\n${data.toString().trim()}\n\n`);
+  process.exit();
+})
