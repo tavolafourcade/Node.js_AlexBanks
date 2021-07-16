@@ -20,12 +20,32 @@ const ask = (i=0) => {
   process.stdout.write(` > `);
 };
 
+//Asking the first question
 ask();
 
 
 /* Using process.stdin to listen for answers */
 // The on function is used for listen to events.
+
+const answers = [];
 process.stdin.on('data', data =>{
-  process.stdout.write(`\n\n${data.toString().trim()}\n\n`);
-  process.exit();
-})
+  //Pushing the answer into the answer array
+  answers.push(`\n\n${data.toString().trim()}\n\n`);
+  
+  if (answers.length < questions.length){
+    ask(answers.length);
+  }else{
+    process.exit();
+  }
+});
+
+process.on('exit', ()=>{
+  const [name, activity, language] = answers;
+  console.log(`
+  
+  Thanks for answer!
+  
+  Go ${activity} ${name}, you can code ${language} later`);
+});
+
+
