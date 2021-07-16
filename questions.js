@@ -6,5 +6,18 @@
 
 
 /* process.stdout */
-process.stdout.write('Hello ');
-process.stdout.write('World \n');
+// process.stdout.write('Hello ');
+// process.stdout.write('World \n');
+
+const questions = [
+  "What's your name?",
+  "What would you rather be doing?",
+  "What is your preferred programming language?"
+]
+
+const ask = (i=0) => {
+  process.stdout.write(`\n\n${questions[i]}`);
+  process.stdout.write(` > `);
+};
+
+ask();
