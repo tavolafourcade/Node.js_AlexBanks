@@ -19,5 +19,4 @@ process.stdin.on('data', data =>{
   }else{
     emitter.emit('customEvent', input, 'terminal');
   }
-  
 })
